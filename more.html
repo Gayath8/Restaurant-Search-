@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>More</title>
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0") no-repeat center/cover;
+}
+.card{
+  background:white;
+  color:black;
+  margin:20px;
+  padding:15px;
+  border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<h1 id="name"></h1>
+<div class="card" id="info"></div>
+
+<button onclick="finish()">Finish</button>
+
+<script>
+let p=new URLSearchParams(window.location.search);
+let h=decodeURIComponent(p.get("hotel")||"Restaurant");
+
+document.getElementById("name").innerHTML=h+" More Details";
+
+document.getElementById("info").innerHTML=`
+<p>📞 Contact: Available</p>
+<p>🍽️ Popular dishes available</p>
+<p>🕒 Open: 10 AM - 10 PM</p>
+`;
+
+function finish(){
+  window.location.href="thankyou.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Finder</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1499028344343-cd173ffc68a9") no-repeat center/cover;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.box{
+  background:rgba(0,0,0,0.7);
+  padding:30px;
+  border-radius:15px;
+}
+button{
+  padding:10px 20px;
+  background:orange;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>🍽️ Restaurant Finder</h1>
+<p>Find best restaurants in Tamil Nadu</p>
+<button onclick="start()">Start</button>
+</div>
+
+<script>
+function start(){
+  window.location.href="district.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurants</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") no-repeat center/cover;
+}
+
+.container{
+  background:rgba(0,0,0,0.7);
+  margin:40px auto;
+  padding:20px;
+  width:90%;
+  border-radius:15px;
+}
+
+.card{
+  background:white;
+  color:black;
+  margin:15px;
+  padding:15px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.card:hover{
+  background:orange;
+  color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h1 id="title"></h1>
+<div id="list"></div>
+</div>
+
+<script>
+
+// Get district
+let params=new URLSearchParams(window.location.search);
+let district=params.get("district") || "Chennai";
+
+document.getElementById("title").innerHTML=district+" - Restaurants";
+
+// ALL 38 DISTRICTS DATA
+let data={
+
+"Chennai":["A2B","Saravana Bhavan","Barbeque Nation"],
+"Coimbatore":["Annapoorna","Haribhavanam","Sree Annapoorna"],
+"Madurai":["Kumar Mess","Murugan Idli Shop","Amma Mess"],
+"Salem":["Selvi Mess","Lakshmi Hotel","Sri Saravana"],
+"Trichy":["Sangeetha","Hotel Femina","Banana Leaf"],
+"Erode":["A1 Mess","Hotel Gowri","Sree Krishna"],
+"Vellore":["Aryaas","Darling Residency","Hotel Alankar"],
+"Tirunelveli":["Iruttukadai","Nellai Saravana","Sree Rathna"],
+"Thoothukudi":["Hotel Raj","Bell Hotel","Grace Restaurant"],
+"Kanyakumari":["Sea View","Hotel Saravana","Triveni"],
+
+"Namakkal":["Anbu Mess","Sree Saravana","Hotel NRP"],
+"Karur":["Hotel Hemala","Sri Annapoorna","Karur Mess"],
+"Dharmapuri":["Ganesh Bhavan","A2B","Adhithya Mess"],
+"Krishnagiri":["Krishna Bhavan","Aasife","Hotel Anand"],
+"Dindigul":["Thalappakatti","Ponram","Anjappar"],
+"Theni":["Green Leaf","Annapoorna","Hotel Gowri"],
+"Virudhunagar":["Vasanth Bhavan","Aryaas","Hotel Amirtham"],
+"Ramanathapuram":["Hotel King","Hotel Ramesh","New Taj"],
+"Sivagangai":["Sree Saravana","Hotel Raja","New Aryaas"],
+"Pudukkottai":["Chettinad Hotel","Sri Krishna","Hotel Siva"],
+
+"Nagapattinam":["Seagate","Sree Krishna","Annapoorna"],
+"Mayiladuthurai":["A2B","Aryaas","Saravana"],
+"Tiruvarur":["Amirtham","Sangeetha","Annapoorna"],
+"Cuddalore":["Annapoorna","Krishna Hotel","Gokulam"],
+"Villupuram":["Saravana","Annapoorna","Anandha"],
+"Kallakurichi":["Hotel A1","New Aryaas","Sree Saravana"],
+"Tiruvannamalai":["Ramana","Aryaas","Annapoorna"],
+"Kanchipuram":["Saravana Bhavan","Krishna","Baboo"],
+"Chengalpattu":["Sangeetha","Aryaas","Hotel Grand"],
+"Tiruvallur":["A2B","Sree Saravana","Hotel Anand"],
+
+"Nilgiris":["Earl's Secret","Place to Bee","Lakeview"],
+"Perambalur":["Hotel A1","Sri Krishna","Saravana"],
+"Ariyalur":["A2B","Annapoorna","Hotel Tamil Nadu"],
+"Tenkasi":["Hotel Gowri","Saravana","Hotel Raja"],
+"Tirupathur":["Saravana","New Aryaas","Hotel Anand"],
+"Ranipet":["Hotel A1","Sri Krishna","Hotel Anand"],
+"Tiruppur":["Annapoorna","A2B","Hotel Gowri"],
+"Thanjavur":["Sathars","Vasantha Bhavan","Hotel Gnanam"]
+
+};
+
+// Get restaurants
+let list=data[district] || ["Restaurant 1","Restaurant 2","Restaurant 3"];
+
+// Display
+let output="";
+for(let i=0;i<list.length;i++){
+  output+=`<div class="card" onclick="go('${list[i]}')">${list[i]}</div>`;
+}
+
+document.getElementById("list").innerHTML=output;
+
+// Go next
+function go(name){
+  window.location.href="details.html?hotel="+encodeURIComponent(name);
+}
+
+</script>
+
+</body>
+</html>

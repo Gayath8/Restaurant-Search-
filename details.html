@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Details</title>
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0") no-repeat center/cover;
+}
+.card{
+  background:white;
+  color:black;
+  margin:20px;
+  padding:15px;
+  border-radius:10px;
+}
+button{
+  padding:10px;
+  background:orange;
+  border:none;
+}
+</style>
+</head>
+<body>
+
+<h1 id="name"></h1>
+<div class="card" id="info"></div>
+
+<button onclick="next()">See More</button>
+
+<script>
+let p=new URLSearchParams(window.location.search);
+let h=decodeURIComponent(p.get("hotel")||"Restaurant");
+
+document.getElementById("name").innerHTML=h;
+
+document.getElementById("info").innerHTML=`
+<p>📍 ${h}, Tamil Nadu</p>
+<p>⭐ 4.5 Rating</p>
+<p>Good food and service</p>
+`;
+
+function next(){
+  window.location.href="more.html?hotel="+encodeURIComponent(h);
+}
+</script>
+
+</body>
+</html>

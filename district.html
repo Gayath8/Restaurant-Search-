@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>District</title>
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") no-repeat center/cover;
+}
+button{
+  margin:8px;
+  padding:10px;
+  width:140px;
+  background:orange;
+  border:none;
+  border-radius:5px;
+  color:white;
+}
+</style>
+</head>
+<body>
+
+<h1>Select District</h1>
+<div id="list"></div>
+
+<script>
+
+let districts=[
+"Chennai","Coimbatore","Madurai","Salem","Trichy","Erode","Vellore","Tirunelveli","Thoothukudi","Kanyakumari",
+"Namakkal","Karur","Dharmapuri","Krishnagiri","Dindigul","Theni","Virudhunagar","Ramanathapuram","Sivagangai","Pudukkottai",
+"Nagapattinam","Mayiladuthurai","Tiruvarur","Cuddalore","Villupuram","Kallakurichi","Tiruvannamalai","Kanchipuram","Chengalpattu","Tiruvallur",
+"Nilgiris","Perambalur","Ariyalur","Tenkasi","Tirupathur","Ranipet","Tiruppur","Thanjavur"
+];
+
+let out="";
+for(let i=0;i<districts.length;i++){
+  out+=`<button onclick="go('${districts[i]}')">${districts[i]}</button>`;
+}
+document.getElementById("list").innerHTML=out;
+
+function go(d){
+  window.location.href="restaurants.html?district="+d;
+}
+</script>
+
+</body>
+</html>
